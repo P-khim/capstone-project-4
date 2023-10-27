@@ -19,12 +19,12 @@ app.get("/", async (req, res) => {
     );
     setups = response.data.setup;
     punchlines = response.data.punchline;
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       setup: response.data.setup,
       onhome: activepage,
     });
   } catch (error) {
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       content: JSON.stringify(error.response.data),
     });
   }
@@ -43,12 +43,12 @@ app.get("/filter", async (req, res) => {
     punchlines = response.data[0].punchline;
     // console.log(punchlines);
 
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       setup: setups,
       onhome: activepage,
     });
   } catch (error) {
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       content: `There is no ${filterby} type;`,
     });
   }
@@ -56,21 +56,21 @@ app.get("/filter", async (req, res) => {
 
 app.post("/get-answer", async (req, res) => {
   try {
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       setup: setups,
       punchline: punchlines,
       onhome: activepage,
       laughgif: laughing,
     });
   } catch (error) {
-    res.render("./views/index.ejs", {
+    res.render("index.ejs", {
       content: JSON.stringify(error.response.data),
     });
   }
 });
 
 app.get("/submit-joke", (req, res) => {
-  res.render("./views/submit.ejs", { onsubmit: activepage });
+  res.render("submit.ejs", { onsubmit: activepage });
 });
 
 app.listen(port, () => {
