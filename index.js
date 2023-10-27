@@ -8,6 +8,7 @@ let setups;
 let punchlines;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", false);
 const activepage = "active-page";
 const laughing = "/images/laugh.gif";
 
@@ -18,12 +19,14 @@ app.get("/", async (req, res) => {
     );
     setups = response.data.setup;
     punchlines = response.data.punchline;
-    res.render("index.ejs", {
+    res.render("./views/index.ejs", {
       setup: response.data.setup,
       onhome: activepage,
     });
   } catch (error) {
-    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+    res.render("./views/index.ejs", {
+      content: JSON.stringify(error.response.data),
+    });
   }
 });
 
@@ -40,30 +43,34 @@ app.get("/filter", async (req, res) => {
     punchlines = response.data[0].punchline;
     // console.log(punchlines);
 
-    res.render("index.ejs", {
+    res.render("./views/index.ejs", {
       setup: setups,
       onhome: activepage,
     });
   } catch (error) {
-    res.render("index.ejs", { content: `There is no ${filterby} type;` });
+    res.render("./views/index.ejs", {
+      content: `There is no ${filterby} type;`,
+    });
   }
 });
 
 app.post("/get-answer", async (req, res) => {
   try {
-    res.render("index.ejs", {
+    res.render("./views/index.ejs", {
       setup: setups,
       punchline: punchlines,
       onhome: activepage,
       laughgif: laughing,
     });
   } catch (error) {
-    res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+    res.render("./views/index.ejs", {
+      content: JSON.stringify(error.response.data),
+    });
   }
 });
 
 app.get("/submit-joke", (req, res) => {
-  res.render("submit.ejs", { onsubmit: activepage });
+  res.render("./views/submit.ejs", { onsubmit: activepage });
 });
 
 app.listen(port, () => {

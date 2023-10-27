@@ -18,20 +18,13 @@
       <ul class="nav nav-pills">
         <li class="nav-item">
           <% if(locals.onhome) {%>
-          <a
-            id="<%= onhome %>"
-            href="http://localhost:3000/"
-            class="nav-link text-dark"
-            >Home</a
-          >
+          <a id="<%= onhome %>" href="/" class="nav-link text-dark">Home</a>
           <% }else{ %>
-          <a href="http://localhost:3000/" class="nav-link text-dark">Home</a>
+          <a href="/" class="nav-link text-dark">Home</a>
           <% } %>
         </li>
         <li class="nav-item">
-          <a href="http://localhost:3000/submit-joke" class="nav-link text-dark"
-            >Submit Joke</a
-          >
+          <a href="/submit-joke" class="nav-link text-dark">Submit Joke</a>
         </li>
       </ul>
     </header>
@@ -119,16 +112,10 @@
   <footer>
     <ul class="nav justify-content-center border-bottom pb-3 mb-3 pt-3">
       <li class="nav-item">
-        <a
-          href="http://localhost:3000/"
-          class="nav-link px-2 text-body-secondary"
-          >Home</a
-        >
+        <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
       </li>
       <li class="nav-item">
-        <a
-          href="http://localhost:3000/submit-joke"
-          class="nav-link px-2 text-body-secondary"
+        <a href="/submit-joke" class="nav-link px-2 text-body-secondary"
           >Submit Joke</a
         >
       </li>
