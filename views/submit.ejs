@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using public API</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a href="http://localhost:3000/" class="nav-link text-dark">Home</a>
+        </li>
+        <li class="nav-item">
+          <% if(locals.onsubmit) {%>
+          <a
+            id="<%= onsubmit %>"
+            href="http://localhost:3000/submit-joke"
+            class="nav-link text-dark"
+            >Submit Joke</a
+          >
+          <% }else{ %>
+          <a href="http://localhost:3000/submit-joke" class="nav-link text-dark"
+            >Submit Joke</a
+          >
+          <% } %>
+        </li>
+      </ul>
+    </header>
+    <main
+      class="d-flex justify-content-center pt-5"
+      style="padding-bottom: 15rem"
+      id="submit-main"
+    >
+      <div class="card" id="card-bg">
+        <ul class="list-group list-group-flush" id="holder-submit">
+          <div class="card-footer text-light fw-bolder">Submit Your Joke</div>
+          <li
+            class="list-group-item d-flex justify-content-center align-items-center text-light"
+            style="background-color: #373738; border-bottom: 0"
+          >
+            <span id="list-submit">Your Joke </span>
+            <input
+              class="form-control ms-4"
+              type="text"
+              placeholder="Input Jokes......"
+              style="width: 22rem"
+            />
+          </li>
+
+          <li
+            class="list-group-item d-flex justify-content-center align-items-center text-light"
+            style="background-color: #373738"
+          >
+            Punchline
+            <input
+              class="form-control ms-4"
+              type="text"
+              placeholder="Input punchline......"
+              aria-label="default input example"
+              style="width: 22rem"
+            />
+          </li>
+          <button
+            type="button"
+            class="btn btn-success ms-3 mt-3"
+            style="width: 5rem"
+          >
+            Submit
+          </button>
+        </ul>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3 pt-3">
+      <li class="nav-item">
+        <a
+          href="http://localhost:3000/"
+          class="nav-link px-2 text-body-secondary"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          href="http://localhost:3000/submit-joke"
+          class="nav-link px-2 text-body-secondary"
+          >Submit Joke</a
+        >
+      </li>
+    </ul>
+    <p class="text-center text-body-secondary" id="company">
+      <a href="#" id="social">© <%= new Date().getFullYear() %> Peng Lykhim,</a>
+    </p>
+  </footer>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+</html>
